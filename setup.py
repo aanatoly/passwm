@@ -68,4 +68,5 @@ setup(
             'passwm = passwm.main:main',
         ],
     },
+    test_suite = 'tests',
 )
