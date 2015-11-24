@@ -10,7 +10,10 @@ pep8:
 
 test:
 	@echo "Run tests"
-	python -m unittest discover -v
-
+	python setup.py test
 
 validate: pep8 test
+
+
+install:
+	python setup.py install --user
