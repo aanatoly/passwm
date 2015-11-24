@@ -231,7 +231,7 @@ class Safe(object):
         try:
             a = self.data[alias]
         except:
-            print "Alias", alias, "does not exists"
+            print "Alias '%s' does not exists" % alias
             exit(100)
 
         # access times
@@ -265,17 +265,21 @@ class Safe(object):
         try:
             del self.data[alias]
         except:
-            print "Alias", alias, "does not exists"
+            print "Alias '%s' does not exists" % alias
             exit(100)
 
     def info(self, alias):
         self.validate_alias('info', alias, allow_all=True)
-        if alias != 'all':
-            a = {}
-            a[alias] = self.data[alias]
+        if alias == 'all':
+            aliases = sorted(self.data.keys())
         else:
-            a = self.data
-        print json.dumps(a, indent=4, sort_keys=True)
+            aliases = [aliases]
+        for a in aliases:
+            print "alias '%s'" % a
+            a = self.data[a]
+            for key in ['username', 'password', 'created', 'modified']:
+                print "  %10s : %s" % (key, a[key])
+            print
 
 ############################################
 # Main
