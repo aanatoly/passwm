@@ -43,7 +43,7 @@ setup(
         'Intended Audience :: End Users/Desktop',
 
         'Topic :: Security',
-        
+
         "License :: OSI Approved :: GNU General Public License v2 (GPLv2)"
         # Specify the Python versions you support here. In particular, ensure
         # that you indicate whether you support Python 2, Python 3 or both.
@@ -59,7 +59,7 @@ setup(
     # simple. Or you can use find_packages().
     packages=['passwm'],
 
-  
+
     # To provide executable scripts, use entry points in preference to the
     # "scripts" keyword. Entry points provide cross-platform support and allow
     # pip to create the appropriate form of executable for the target platform.
@@ -68,5 +68,5 @@ setup(
             'passwm = passwm.main:main',
         ],
     },
-    test_suite = 'tests',
+    test_suite='tests',
 )

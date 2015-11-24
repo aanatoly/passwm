@@ -3,7 +3,6 @@ from passwm import Safe
 import sys
 import logging
 
-
 try:
     # Module logging_conf should intialize root logger and, perhaps some
     # others, and assign 'log' variable to proper logger.
@@ -19,14 +18,12 @@ except:
     # log.addHandler(h)
 
 
-
 class TestSafe(unittest.TestCase):
-
     def setUp(self):
         "self doc"
         # log.debug("\nlog: setUp")
         self.safe = Safe('deadbeaf', '/tmp/xxx')
-        
+
     def test_upper(self):
         "test_upper doc"
         self.assertEqual('foo'.upper(), 'FOO')
@@ -43,6 +40,7 @@ class TestSafe(unittest.TestCase):
         # check that s.split fails when the separator is not a string
         with self.assertRaises(TypeError):
             s.split(2)
+
 
 if __name__ == '__main__':
     unittest.main()
