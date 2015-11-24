@@ -11,7 +11,7 @@ try:
 except:
     log = logging.getLogger()
     # log.setLevel(logging.WARNING)
-    log.setLevel(logging.DEBUG)
+    # log.setLevel(logging.DEBUG)
     # h = logging.StreamHandler()
     # # f = MyFormatter()
     # f = logging.Formatter()
@@ -24,7 +24,7 @@ class TestSafe(unittest.TestCase):
 
     def setUp(self):
         "self doc"
-        log.debug("\nlog: setUp")
+        # log.debug("\nlog: setUp")
         self.safe = Safe('deadbeaf', '/tmp/xxx')
         
     def test_upper(self):

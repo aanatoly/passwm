@@ -10,7 +10,7 @@ pep8:
 
 test:
 	@echo "Run tests"
-	python -m unittest discover -s tests/
+	python -m unittest discover -v
 
 
 validate: pep8 test
