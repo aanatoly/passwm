@@ -230,7 +230,7 @@ class Safe(object):
     def add(self, alias):
         self.validate_alias('add', alias)
         if alias in self.data:
-            print "Alias", alias, "already exists"
+            print "Alias '%s' already exists" % alias
             exit(100)
         self.data[alias] = {'alias': alias}
         self.update(alias)
@@ -254,14 +254,9 @@ class Safe(object):
         a['username'] = username
 
         # password
-        gen_password = raw_input('Generate random password? [Y/n]: ')
-        if gen_password.strip() in ['n', 'N']:
-            password = getpass.getpass('Enter the password: ')
-            password = password.strip()
-            if not password:
-                print "No password"
-                exit(100)
-        else:
+        msg = 'Enter password, or leave empty to generate random one: '
+        password = getpass.getpass(msg).strip()
+        if not password:
             password = self.generate_password(20)
         a['password'] = password
 
