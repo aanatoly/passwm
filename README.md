@@ -47,5 +47,5 @@ Nice to have:
 ## See also
 Have a look at these console password managers
 
- * bndw/pick - a minimalistic one
- * thusoy/pwm - more features
+ * [bndw/pick](https://github.com/bndw/pick) - a minimalistic one
+ * [thusoy/pwm](https://github.com/thusoy/pwm) - more features
