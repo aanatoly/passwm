@@ -23,7 +23,7 @@ Enter master password:
 > passwm -a github
 Enter master password: 
 Enter the account name (username/email/etc): aanatoly
-Generate random password? [Y/n]: y
+Enter password, or leave empty to generate random one:
 ```
 
 List your aliases
