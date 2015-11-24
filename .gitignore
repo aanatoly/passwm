@@ -2,4 +2,5 @@ build/
 dist/
 passwm.egg-info/
 *.pyc
+*.md.html
 
