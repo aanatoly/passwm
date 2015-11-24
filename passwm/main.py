@@ -180,13 +180,22 @@ class Safe(object):
         log.debug("cmd '%s'", ' '.join(cmd))
         return cmd
 
-    def validate_alias(self, action, alias, allow_all=False):
+    def validate_alias(self, action, alias, allow_all=False, exist=None):
         if not alias:
             print action, "command require an alias."
             exit(100)
-        if alias == 'all' and not allow_all:
-            print "Can't", action, "'all' alias. Use another name."
-            exit(100)
+        if alias == 'all':
+            if not allow_all:
+                print "Can't", action, "'all' alias. Use another name."
+                exit(100)
+            return
+        if exist is not None:
+            if exist and alias not in self.data:
+                print "Alias '%s' does not exists" % alias
+                exit(100)
+            if not exist and alias in self.data:
+                print "Alias '%s' already exists" % alias
+                exit(100)
 
     def generate_password(self, length):
         chars = string.ascii_letters + string.digits
@@ -227,12 +236,8 @@ class Safe(object):
         self.update(alias)
 
     def update(self, alias):
-        self.validate_alias('update', alias)
-        try:
-            a = self.data[alias]
-        except:
-            print "Alias '%s' does not exists" % alias
-            exit(100)
+        self.validate_alias('update', alias, exist=True)
+        a = self.data[alias]
 
         # access times
         now = time.strftime("%Y-%m-%d %H:%M:%S", time.gmtime())
@@ -261,19 +266,15 @@ class Safe(object):
         a['password'] = password
 
     def delete(self, alias):
-        self.validate_alias('delete', alias)
-        try:
-            del self.data[alias]
-        except:
-            print "Alias '%s' does not exists" % alias
-            exit(100)
+        self.validate_alias('delete', alias, exist=True)
+        del self.data[alias]
 
     def info(self, alias):
-        self.validate_alias('info', alias, allow_all=True)
+        self.validate_alias('info', alias, allow_all=True, exist=True)
         if alias == 'all':
             aliases = sorted(self.data.keys())
         else:
-            aliases = [aliases]
+            aliases = [alias]
         for a in aliases:
             print "alias '%s'" % a
             a = self.data[a]
