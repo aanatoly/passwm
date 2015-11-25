@@ -3,18 +3,6 @@ Simple console password manager for Linux.
 It stores all your passwords in a GPG encrypted file and allows to add, update
 and delete individual entries.
 
-## Installation
-```bash
-git clone https://github.com/aanatoly/passwm.git
-cd passwm
-make install # user install to ~/.local/bin
-```
-
-Make sure that `~/.local/bin` is in your `PATH`. Add this line to `~/.bashrc`
-```bash
-export PATH="$HOME/.local/bin:$PATH"
-```
-
 ## Usage
 Initialize `passwm` and add first entry (aka alias).
 ```
@@ -37,6 +25,17 @@ alias 'github'
     modified : 2015-11-24 10:31:11
 ```
 
+## Installation
+```bash
+git clone https://github.com/aanatoly/passwm.git
+cd passwm
+make install # user install to ~/.local/bin
+```
+
+Make sure that `~/.local/bin` is in your `PATH`. Add this line to `~/.bashrc`
+```bash
+export PATH="$HOME/.local/bin:$PATH"
+```
 
 
 ## Todo
