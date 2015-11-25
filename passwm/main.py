@@ -5,7 +5,7 @@ Simple console password manager
 '''
 
 prog_name = "passwm"
-prog_version = "0.1"  # also update version in setup.py
+prog_version = "0.2"  # also update version in setup.py
 prog_epilog = '''
 Example:
    %(prog)s -i all

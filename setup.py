@@ -18,7 +18,7 @@ with open(path.join(here, 'README.md'), encoding='utf-8') as f:
 
 setup(
     name='passwm',
-    version='0.1',  # also update version in src/main.py
+    version='0.2',  # also update version in src/main.py
 
     description='Simple password manager',
     long_description=long_description,
